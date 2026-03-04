@@ -1,0 +1,42 @@
+<%@ page import="com.oceanview.model.User" %>
+<%
+    User headerUser = (User) session.getAttribute("loggedUser");
+    String currentPage = (String) request.getAttribute("currentPage");
+    if (currentPage == null) currentPage = "";
+%>
+
+<header class="site-header">
+    <div class="site-shell header-inner">
+        <a href="<%= (headerUser != null) ? "dashboard.jsp" : "login.jsp" %>" class="brand-link">
+            <div class="brand-logo">OV</div>
+            <div class="brand-text">
+                <div class="brand-title">Ocean View Resort</div>
+                <div class="brand-sub">Reservation Management System</div>
+            </div>
+        </a>
+
+        <nav class="main-nav">
+            <% if (headerUser != null) { %>
+            <a class="nav-link <%= "dashboard".equals(currentPage) ? "active" : "" %>" href="dashboard.jsp">Dashboard</a>
+            <a class="nav-link <%= "add".equals(currentPage) ? "active" : "" %>" href="addReservation.jsp">Add Reservation</a>
+            <a class="nav-link <%= "view".equals(currentPage) ? "active" : "" %>" href="viewReservation.jsp">View</a>
+            <a class="nav-link <%= "bill".equals(currentPage) ? "active" : "" %>" href="bill.jsp">Bill</a>
+            <a class="nav-link <%= "help".equals(currentPage) ? "active" : "" %>" href="help.jsp">Help</a>
+            <a class="nav-link nav-danger" href="logout">Logout</a>
+            <% } else { %>
+            <a class="nav-link active" href="login.jsp">Login</a>
+            <% } %>
+        </nav>
+    </div>
+</header>
+
+<% if (headerUser != null) { %>
+<div class="site-shell">
+    <div class="top-user-bar">
+        <div class="user-badge">
+            Welcome, <strong><%= headerUser.getFullName() %></strong>
+            <span class="role-pill"><%= headerUser.getRole() %></span>
+        </div>
+    </div>
+</div>
+<% } %>

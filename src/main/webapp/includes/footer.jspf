@@ -1,0 +1,33 @@
+<footer class="site-footer">
+    <div class="site-shell footer-inner">
+        <div class="footer-col">
+            <h4>Ocean View Resort</h4>
+            <p>Professional reservation management system for front-office staff operations.</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="dashboard.jsp">Dashboard</a></li>
+                <li><a href="addReservation.jsp">Add Reservation</a></li>
+                <li><a href="viewReservation.jsp">View Reservation</a></li>
+                <li><a href="bill.jsp">Calculate Bill</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="help.jsp">Help Center</a></li>
+                <li><a href="login.jsp">Login</a></li>
+                <li><a href="logout">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="site-shell">
+            © <%= java.time.Year.now() %> Ocean View Resort. All rights reserved.
+        </div>
+    </div>
+</footer>
